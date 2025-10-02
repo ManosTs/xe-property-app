@@ -68,7 +68,7 @@ Property.init(
   },
   {
     sequelize,
-    tableName: "ads"
+    tableName: "property"
   }
 );
 

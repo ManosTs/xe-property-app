@@ -1,4 +1,4 @@
-import type {SelectOptionType} from "../../components/form/inputs/select-field/types/select-option-type.ts";
+import type {SelectOptionType} from "@/components/form/inputs/select-field/types/select-option-type.ts";
 
 
 export const propertyTypes: SelectOptionType[] = [

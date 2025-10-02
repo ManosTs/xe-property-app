@@ -3,7 +3,7 @@ import type {FieldValues, SubmitHandler, UseFormProps} from "react-hook-form";
 import type {InferType, ObjectSchema} from "yup";
 
 export interface FormProps<TFormValues extends FieldValues> extends PropsWithChildren{
-    onSubmit: SubmitHandler<TFormValues>;
+    onSubmit: SubmitHandler<InferType<ObjectSchema<TFormValues>>>;
     name: string;
     formConfig?: UseFormProps<InferType<ObjectSchema<TFormValues>>>;
     schema?: ObjectSchema<TFormValues>;

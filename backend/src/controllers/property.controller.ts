@@ -41,6 +41,7 @@ export const updateProperty = async (req: Request, res: Response, next: NextFunc
     const { id } = req.params;
     const { title, price, description, type, placeDescription, typeDescription, placeId } = req.body;
     const response = await Property.update({ title, price, description, type, placeDescription, typeDescription, placeId }, { where: { id } });
+    
     if(response == null || response[0] === 0) {
       res.status(404).json({ error: "Property not found or no changes made" });
       return;

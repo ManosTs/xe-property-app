@@ -7,7 +7,7 @@ export default function useDebounce<F extends (...args: Parameters<F>) => Return
     func: F,
     delay = 500
 ){
-    const timer = useRef<Timer>(delay);
+    const timer = useRef<Timer | null>(null);
     
     useEffect(() => {
         return () => {
@@ -20,7 +20,7 @@ export default function useDebounce<F extends (...args: Parameters<F>) => Return
         const newTimer = setTimeout(() => {
             func(...args);
         }, delay);
-        clearTimeout(timer.current);
+        clearTimeout(timer.current!);
         timer.current = newTimer;
     });
     

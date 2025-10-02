@@ -1,10 +1,10 @@
 import Form from "../../components/form";
-import {AdManagementFormInputs} from "./AdManagementFormInputs.tsx";
+import AdManagementFormInputs from "./AdManagementFormInputs.tsx";
 import * as yup from "yup";
 import AdManagementFormActions from "./AdManagementFormActions.tsx";
-import type {SelectOptionType} from "../../components/form/inputs/select-field/types/select-option-type.ts";
+import type {SelectOptionType} from "@/components/form/inputs/select-field/types/select-option-type.ts";
 import useMutate from "../../service/hooks/use-mutate.tsx";
-import type {IProperty} from "../../models/property.model.ts";
+import type {IProperty} from "@/models/property.model.ts";
 import {toast} from "react-toastify";
 import {useNavigate, useParams} from "react-router-dom";
 
@@ -24,7 +24,7 @@ export default function AdManagementForm() {
             .test('len', 'Must be less than 155 characters',
                 val => val != null && val.length <= 155)
             .required('Title is required'),
-        price: yup.number().required('Price is required'),
+        price: yup.number().typeError('Price should be a number').required('Price is required'),
         type: yup.object<SelectOptionType>()
             .typeError('Type is required')
             .required('Type is required'),
@@ -32,13 +32,14 @@ export default function AdManagementForm() {
             .typeError('Area is required')
             .required('Area is required'),
         description: yup.string()
-            .nullable()
-            .optional()
             .test(
                 'len',
                 'Must be less than 500 characters',
-                val => val != null && val?.trim()?.length <= 500
+                val => {
+                    return val == null || val === "" || (val != null && val?.trim()?.length <= 500)
+                }
             )
+            .notRequired()
     });
     
     const {id} = useParams();

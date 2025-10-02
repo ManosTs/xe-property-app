@@ -2,14 +2,14 @@ import TextField from "../../components/form/inputs/text-field";
 import SelectField from "../../components/form/inputs/select-field";
 import TextAreaField from "../../components/form/inputs/text-area-field";
 import {Fragment, useEffect} from "react";
-import {propertyTypes} from "../../lib/mock/property-types.ts";
+import {propertyTypes} from "@/lib/mock/property-types.ts";
 import {useParams} from "react-router-dom";
 import useFetch from "../../service/hooks/use-fetch.tsx";
-import type {IProperty} from "../../models/property.model.ts";
+import type {IProperty} from "@/models/property.model.ts";
 import {useFormContext} from "react-hook-form";
-import type {IExternalAreas} from "../../models/external-areas.model.ts";
+import type {IExternalAreas} from "@/models/external-areas.model.ts";
 
-export function AdManagementFormInputs() {
+export default function AdManagementFormInputs() {
     const {reset} = useFormContext();
     const {id} = useParams();
     
@@ -21,6 +21,7 @@ export function AdManagementFormInputs() {
         }
     })
     
+    //set default values on edit page
     useEffect(() => {
         reset({
             id: data?.id,

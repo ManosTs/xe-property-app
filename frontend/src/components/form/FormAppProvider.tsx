@@ -1,7 +1,7 @@
 import {type FieldValues, FormProvider, useForm} from "react-hook-form";
 import type {FormProps} from "./types/form-props.ts";
 import {type FormEvent, useCallback} from "react";
-import {cn} from "../../lib/utils.ts";
+import {cn} from "@/lib/utils.ts";
 import {yupResolver} from "@hookform/resolvers/yup";
 import type {ObjectSchema} from "yup";
 

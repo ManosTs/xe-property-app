@@ -1,5 +1,5 @@
 import {type ComponentProps, forwardRef} from "react";
-import {cn} from "../../lib/utils.ts";
+import {cn} from "@/lib/utils.ts";
 
 
 export const Input = forwardRef<HTMLInputElement, ComponentProps<"input">>(

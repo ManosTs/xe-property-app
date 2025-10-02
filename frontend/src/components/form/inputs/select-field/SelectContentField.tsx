@@ -5,7 +5,7 @@ import {type Dispatch, Fragment, type SetStateAction, type SyntheticEvent, useSt
 import type {SelectOptionType} from "./types/select-option-type.ts";
 import useFetch from "../../../../service/hooks/use-fetch.tsx";
 import {Spinner} from "../../../ui/Spinner.tsx";
-import useDebounce from "../../../../lib/hooks/use-debounce.tsx";
+import useDebounce from "@/lib/hooks/use-debounce.tsx";
 
 
 interface SelectFieldTriggerProps<T> extends Pick<SelectFieldProps<T>, "options" | "isAutoComplete" | "uri" | "fetchKey" | "mapOptions"> {
@@ -26,6 +26,7 @@ export default function SelectContentField<T>(props: Readonly<SelectFieldTrigger
         mapOptions,
         setFilteredOptions,
     } = props;
+    
     const [loading, setLoading] = useState<boolean>(false);
     
     const {refetch} = useFetch<T[]>({
@@ -59,6 +60,7 @@ export default function SelectContentField<T>(props: Readonly<SelectFieldTrigger
             
         }
     }
+    
     const debounceAutocompleteSearch = useDebounce(handleAutocompleteSearch);
     const onInputSearch = async (event: SyntheticEvent<HTMLInputElement>) => {
         const value = (event.target as HTMLInputElement).value
@@ -67,8 +69,6 @@ export default function SelectContentField<T>(props: Readonly<SelectFieldTrigger
         
         debounceAutocompleteSearch(value);
     }
-    
-    
     
     return (
         <SelectContent>

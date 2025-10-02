@@ -1,7 +1,7 @@
 import type {SelectFieldProps} from "./types/select-field-props.ts";
 import {Controller, useFormContext} from "react-hook-form";
 import PlainSelectField from "./PlainSelectField.tsx";
-import {cn} from "../../../../lib/utils.ts";
+import {cn} from "@/lib/utils.ts";
 
 
 export default function SelectField<T>(props: Readonly<SelectFieldProps<T>>) {

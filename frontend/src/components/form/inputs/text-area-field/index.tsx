@@ -1,7 +1,7 @@
 import {Controller, useFormContext} from "react-hook-form";
 import {PlainTextAreaField} from "./PlainTextAreaField.tsx";
 import type {TextAreaFieldProps} from "./types/text-area-field.props.ts";
-import {cn} from "../../../../lib/utils.ts";
+import {cn} from "@/lib/utils.ts";
 
 
 export default function TextAreaField(props: Readonly<TextAreaFieldProps>) {

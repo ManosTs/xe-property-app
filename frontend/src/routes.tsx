@@ -1,9 +1,17 @@
 import {Route, Routes} from "react-router-dom";
-import Home from "./pages/Home.tsx";
-import NotFound from "./NotFound.tsx";
-import AdManagement from "./pages/AdManagement";
-import AdManagementProperties from "./pages/Properties/AdManagementProperties.tsx";
+import {lazy} from "react";
 
+const AdManagement = lazy(() =>
+    import("./pages/AdManagement"));
+
+const AdManagementProperties = lazy(() =>
+    import("./pages/Properties/AdManagementProperties.tsx"));
+
+const NotFound = lazy(() =>
+    import("./NotFound.tsx"));
+
+const Home = lazy(() =>
+    import("./pages/Home.tsx"));
 
 export default function AppRoutes() {
     return (
@@ -13,10 +21,6 @@ export default function AppRoutes() {
                 <Route path=":id" />
             </Route>
             <Route path="/my-properties" element={<AdManagementProperties/>}/>
-            {/*<Route path="/dashboard" element={<Dashboard />}>*/}
-            {/*    <Route path="stats" element={<Stats />} />*/}
-            {/*    <Route path="settings" element={<Settings />} />*/}
-            {/*</Route>*/}
             <Route path="*" element={<NotFound/>}/>
         </Routes>
     )

@@ -1,5 +1,5 @@
 import {motion} from "framer-motion";
-import {cn} from "../../lib/utils.ts";
+import {cn} from "@/lib/utils.ts";
 import type {HTMLAttributes} from "react";
 
 

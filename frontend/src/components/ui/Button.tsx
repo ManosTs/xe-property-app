@@ -1,5 +1,5 @@
 import {type ButtonHTMLAttributes, forwardRef} from "react";
-import {cn} from "../../lib/utils.ts";
+import {cn} from "@/lib/utils.ts";
 import {Spinner} from "./Spinner.tsx";
 
 export interface ButtonProps

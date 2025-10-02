@@ -5,7 +5,7 @@ import type {HttpErrorResponse} from "./types/http-error-response.ts";
 export class ApiService<T> {
     private api: AxiosInstance;
     private readonly uri: string;
-    private url  = "http://localhost:8080/api"
+    private url = import.meta.env.VITE_SERVER_URL
 
     constructor(uri: string) {
         this.api = axios.create({baseURL: this.url});

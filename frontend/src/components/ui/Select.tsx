@@ -1,6 +1,6 @@
 import * as SelectPrimitive from '@radix-ui/react-select';
 import {type ComponentPropsWithoutRef, type ComponentRef, forwardRef} from "react";
-import {cn} from "../../lib/utils.ts";
+import {cn} from "@/lib/utils.ts";
 import {CaretDownIcon, CheckIcon} from "@radix-ui/react-icons";
 
 const Select = SelectPrimitive.Root;

@@ -7,11 +7,11 @@ export default function Layout(props: Readonly<LayoutProps>){
     
     return (
         <div className={'w-full'}>
-            <div className={'flex items-center justify-start gap-4 m-3'}>
+            <nav className={'flex items-center justify-start gap-4 p-3 bg-blue-400'}>
                 <NavigationLink title={'Home'} path={'/'}/>
                 <NavigationLink title={'Create Property'} path={'/ad-management'}/>
                 <NavigationLink title={'My Properties'} path={'/my-properties'}/>
-            </div>
+            </nav>
             
             {children}
         </div>
