@@ -24,7 +24,11 @@ export default function AdManagementForm() {
             .test('len', 'Must be less than 155 characters',
                 val => val != null && val.length <= 155)
             .required('Title is required'),
-        price: yup.number().typeError('Price should be a number').required('Price is required'),
+        price: yup.number()
+            .positive()
+            .min(0)
+            .typeError('Price should be a number')
+            .required('Price is required'),
         type: yup.object<SelectOptionType>()
             .typeError('Type is required')
             .required('Type is required'),

@@ -39,6 +39,7 @@ export default function SelectContentField<T>(props: Readonly<SelectFieldTrigger
         
     });
     
+    //handler to fetch data
     const handleAutocompleteSearch = async (value: string) => {
         if(value == null || value == "" || value?.trim()?.length === 0) {
             setFilteredOptions([]);
@@ -61,12 +62,17 @@ export default function SelectContentField<T>(props: Readonly<SelectFieldTrigger
         }
     }
     
+    //debounce - for redundant searches, leave time for user to type in
     const debounceAutocompleteSearch = useDebounce(handleAutocompleteSearch);
+    
+    // while user typing save input value and if it is autocomplete fetch data
     const onInputSearch = async (event: SyntheticEvent<HTMLInputElement>) => {
         const value = (event.target as HTMLInputElement).value
         
+        //save input value
         setSearchTerm(value);
         
+        //autocomplete search
         debounceAutocompleteSearch(value);
     }
     
