@@ -37,7 +37,7 @@ The project structure is divided into two main folders:
 ### 1. Clone the repository
 
 ```
-git clone https://github.com/yourusername/xe-property-app.git
+git clone https://github.com/ManosTs/xe-property-app.git
 cd xe-property-app
 
 ```Install depdencies
