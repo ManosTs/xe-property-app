@@ -4,7 +4,7 @@
 This project is a full-stack web application with a **React (Vite)** frontend and an **Express.js** backend
 which connects to **mySQL Database** with **sequelize**.
 
-# Tech Stack
+## Tech Stack
 ```
 # Frontend
 Tailwind CSS: rapid styling
